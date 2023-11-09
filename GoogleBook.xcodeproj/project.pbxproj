@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5E6ACFED2AFB5276007CF647 /* APIClient in Frameworks */ = {isa = PBXBuildFile; productRef = 5E6ACFEC2AFB5276007CF647 /* APIClient */; };
+		5E6AD02C2AFC9A2D007CF647 /* TopFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 5E6AD02B2AFC9A2D007CF647 /* TopFeature */; };
 		5ECBFC892AFB4A5500FA5501 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECBFC882AFB4A5500FA5501 /* AppDelegate.swift */; };
 		5ECBFC8B2AFB4A5500FA5501 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECBFC8A2AFB4A5500FA5501 /* SceneDelegate.swift */; };
-		5ECBFC8D2AFB4A5500FA5501 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECBFC8C2AFB4A5500FA5501 /* ViewController.swift */; };
 		5ECBFC922AFB4A5600FA5501 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ECBFC912AFB4A5600FA5501 /* Assets.xcassets */; };
 		5ECBFC952AFB4A5600FA5501 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECBFC932AFB4A5600FA5501 /* LaunchScreen.storyboard */; };
 		5ECBFCA02AFB4A5600FA5501 /* GoogleBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECBFC9F2AFB4A5600FA5501 /* GoogleBookTests.swift */; };
@@ -39,7 +39,6 @@
 		5ECBFC852AFB4A5500FA5501 /* GoogleBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ECBFC882AFB4A5500FA5501 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ECBFC8A2AFB4A5500FA5501 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5ECBFC8C2AFB4A5500FA5501 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5ECBFC912AFB4A5600FA5501 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5ECBFC942AFB4A5600FA5501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5ECBFC962AFB4A5600FA5501 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E6ACFED2AFB5276007CF647 /* APIClient in Frameworks */,
+				5E6AD02C2AFC9A2D007CF647 /* TopFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +101,6 @@
 			children = (
 				5ECBFC882AFB4A5500FA5501 /* AppDelegate.swift */,
 				5ECBFC8A2AFB4A5500FA5501 /* SceneDelegate.swift */,
-				5ECBFC8C2AFB4A5500FA5501 /* ViewController.swift */,
 				5ECBFC912AFB4A5600FA5501 /* Assets.xcassets */,
 				5ECBFC932AFB4A5600FA5501 /* LaunchScreen.storyboard */,
 				5ECBFC962AFB4A5600FA5501 /* Info.plist */,
@@ -144,6 +143,7 @@
 			name = GoogleBook;
 			packageProductDependencies = (
 				5E6ACFEC2AFB5276007CF647 /* APIClient */,
+				5E6AD02B2AFC9A2D007CF647 /* TopFeature */,
 			);
 			productName = GoogleBook;
 			productReference = 5ECBFC852AFB4A5500FA5501 /* GoogleBook.app */;
@@ -219,6 +219,7 @@
 			mainGroup = 5ECBFC7C2AFB4A5500FA5501;
 			packageReferences = (
 				5E6ACFEB2AFB5276007CF647 /* XCLocalSwiftPackageReference "GoogleBookCore" */,
+				5E6AD02A2AFC9A2D007CF647 /* XCLocalSwiftPackageReference "GoogleBookAppFeature" */,
 			);
 			productRefGroup = 5ECBFC862AFB4A5500FA5501 /* Products */;
 			projectDirPath = "";
@@ -262,7 +263,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ECBFC8D2AFB4A5500FA5501 /* ViewController.swift in Sources */,
 				5ECBFC892AFB4A5500FA5501 /* AppDelegate.swift in Sources */,
 				5ECBFC8B2AFB4A5500FA5501 /* SceneDelegate.swift in Sources */,
 			);
@@ -607,12 +607,20 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = GoogleBookCore;
 		};
+		5E6AD02A2AFC9A2D007CF647 /* XCLocalSwiftPackageReference "GoogleBookAppFeature" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = GoogleBookAppFeature;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		5E6ACFEC2AFB5276007CF647 /* APIClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = APIClient;
+		};
+		5E6AD02B2AFC9A2D007CF647 /* TopFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TopFeature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -5,19 +5,21 @@ import PackageDescription
 
 let package = Package(
     name: "GoogleBookAppFeature",
+    platforms: [
+        .iOS(.v17)
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "GoogleBookAppFeature",
-            targets: ["GoogleBookAppFeature"]),
+            name: "TopFeature",
+            targets: ["TopFeature"]),
+    ],
+    dependencies: [
+        .package(path: "../GoogleBookCore")
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "GoogleBookAppFeature"),
-        .testTarget(
-            name: "GoogleBookAppFeatureTests",
-            dependencies: ["GoogleBookAppFeature"]),
+            name: "TopFeature",
+            dependencies: [.product(name: "APIClient", package: "GoogleBookCore")]
+        )
     ]
 )

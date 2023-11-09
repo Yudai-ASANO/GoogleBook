@@ -6,13 +6,24 @@
 //
 
 import UIKit
+import APIClient
 
-class TopViewController: UIViewController {
+public class TopViewController: UIViewController {
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        Task {
+            do {
+                let response = try await GetSearchResult(keyword: "abc").sendRequest()
+                await MainActor.run {
+                    response.items?.forEach({ item in
+                        print(item)
+                    })
+                }
+            } catch {
+                print(error)
+            }
+        }
     }
     
 

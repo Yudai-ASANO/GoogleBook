@@ -2,12 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:GoogleBookAppFeature">
+   </FileRef>
+   <FileRef
       location = "group:GoogleBookCore">
    </FileRef>
    <FileRef
       location = "group:GoogleBook.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Staging/Staging.xcodeproj">
+      location = "group:Develop/Develop.xcodeproj">
    </FileRef>
 </Workspace>
