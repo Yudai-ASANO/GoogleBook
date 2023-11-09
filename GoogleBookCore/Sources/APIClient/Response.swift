@@ -87,8 +87,8 @@ public struct Offer: Codable {
 
 // MARK: - OfferListPrice
 public struct OfferListPrice: Codable {
-    let amountInMicros: Int?
-    let currencyCode: String?
+    public let amountInMicros: Int?
+    public let currencyCode: String?
 }
 
 public enum Saleability: String, Codable {
@@ -98,7 +98,7 @@ public enum Saleability: String, Codable {
 
 // MARK: - SearchInfo
 public struct SearchInfo: Codable {
-    let textSnippet: String?
+    public let textSnippet: String?
 }
 
 // MARK: - VolumeInfo
