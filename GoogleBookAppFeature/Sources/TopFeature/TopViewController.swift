@@ -15,11 +15,9 @@ public class TopViewController: UIViewController {
         Task {
             do {
                 let response = try await GetSearchResult(keyword: "abc").sendRequest()
-                await MainActor.run {
-                    response.items?.forEach({ item in
-                        print(item)
-                    })
-                }
+                response.items?.forEach({ item in
+                    print(item)
+                })
             } catch {
                 print(error)
             }
