@@ -19,7 +19,16 @@ let package = Package(
     targets: [
         .target(
             name: "TopFeature",
-            dependencies: [.product(name: "APIClient", package: "GoogleBookCore")]
+            dependencies: [
+                .product(
+                    name: "APIClient",
+                    package: "GoogleBookCore"
+                ),
+                .product(
+                    name: "ClientModels",
+                    package: "GoogleBookCore"
+                )
+            ]
         )
     ]
 )

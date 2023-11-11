@@ -13,6 +13,10 @@ let package = Package(
         .library(
             name: "APIClient",
             targets: ["APIClient"]),
+        .library(
+            name: "ClientModels",
+            targets: ["ClientModels"]
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0")),
@@ -24,5 +28,8 @@ let package = Package(
             name: "APIClient",
             dependencies: ["Moya"]
         ),
+        .target(
+            name: "ClientModels"
+        )
     ]
 )
