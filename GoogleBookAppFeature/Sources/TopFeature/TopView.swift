@@ -6,52 +6,43 @@
 //
 
 import SwiftUI
-import ClientModels
-import APIClient
 
 public struct TopView: View {
+    @ObservedObject private var model: TopModel
+    
+    public init(model: TopModel) {
+        self.model = model
+    }
+    
     public var body: some View {
-        RequestingView(GetSearchResult(keyword: "abc")) { response, reload in
-            let model = transpile(response: response)
+        content
+            .task {
+                await model.fetch(by: "abc")
+            }
+    }
+    
+    @ViewBuilder
+    private var content: some View {
+        switch model.state {
+        case .idle, .loading:
+            ProgressView()
+        case .loaded(let book):
             ScrollView {
                 LazyVStack(content: {
-                    ForEach(model.volumes) { volume in
+                    ForEach(book.volumes) { volume in
                         Text(volume.title)
                     }
                 })
             }
             .refreshable {
-                await reload()
+                await model.fetch(by: "abc", shouldUpdateLoadingState: false)
             }
-        } loading: {
-            ProgressView()
+        case .error(let error):
+            Text(error.localizedDescription)
         }
-
-    }
-    
-    private func transpile(response: BookResponse) -> BookModel {
-        let kind = response.kind ?? ""
-        let items = response.items ?? []
-        
-        return BookModel(
-            kind: kind,
-            volumes: items.map({ item in
-                VolumeModel(
-                    title: item.volumeInfo?.title ?? "",
-                    subtitle: item.volumeInfo?.subtitle ?? "",
-                    authors: item.volumeInfo?.authors ?? [],
-                    publishedDate: item.volumeInfo?.publishedDate ?? "",
-                    volumeInfoDescription: item.volumeInfo?.volumeInfoDescription ?? "",
-                    publisher: item.volumeInfo?.publisher ?? "",
-                    categories: item.volumeInfo?.categories ?? [],
-                    averageRating: item.volumeInfo?.averageRating ?? .zero,
-                    ratingsCount: item.volumeInfo?.ratingsCount ?? .zero
-                )
-            })
-        )
     }
 }
 
 #Preview {
-    TopView()
+    TopView(model: TopModel(repository: TopRepositoryMock()))
 }

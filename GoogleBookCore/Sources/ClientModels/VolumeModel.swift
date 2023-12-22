@@ -31,6 +31,6 @@ public struct VolumeModel: Hashable {
 
 extension VolumeModel: Identifiable {
     public var id: String {
-        title
+        title+subtitle+authors.joined()
     }
 }
