@@ -10,14 +10,7 @@ import ClientModels
 
 @MainActor
 public final class TopModel: ObservableObject {
-    @Published public private(set) var state: State<BookModel> = .idle
-    
-    public enum State<T> {
-        case idle
-        case loading
-        case loaded(T)
-        case error(Error)
-    }
+    @Published public private(set) var state: UIState<BookModel> = .idle
     
     public init(repository: TopRepositoryInterface) {
         self.repository = repository
